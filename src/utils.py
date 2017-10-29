@@ -1,4 +1,3 @@
-import os
 import csv
 from functools import wraps
 from json import dumps
@@ -50,7 +49,7 @@ def get_data():
     }
     """
     data = {}
-    with open(os.getcwd() + '/src/data.csv', 'r') as csvfile:
+    with open('src/resources/data.csv', 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         data['categories'] = {
             i: category for i, category in enumerate(next(reader)[1:])
