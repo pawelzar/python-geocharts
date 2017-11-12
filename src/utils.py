@@ -1,29 +1,7 @@
 import csv
-from functools import wraps
-from json import dumps
-
-from flask import Response
-
 
 import logging
 log = logging.getLogger(__name__)  # pylint: disable=invalid-name
-
-
-def jsonify(func):
-    """
-    Creates a response with the JSON representation of wrapped function result.
-    """
-    @wraps(func)
-    def inner(*args, **kwargs):
-        """
-        This docstring will be overridden by @wraps decorator.
-        """
-        return Response(
-            dumps(func(*args, **kwargs)),
-            mimetype='application/json'
-        )
-
-    return inner
 
 
 def get_data():
